@@ -30,13 +30,17 @@
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
 
 #ifndef LAYER_Lower
+
 #define LAYER_Lower 0
-#endif
 
-/* Custom Device-tree */
-/* Glove80 system behavior & macros */
+#
 
-/ {
+endif {
+    /* Custom Device-tree */
+    /* Glove80 system behavior & macros */
+
+    /
+
     behaviors {
         // For the "layer" key, it'd nice to be able to use it as either a shift or a toggle.
         // Configure it as a tap dance, so the first tap (or hold) is a &mo and the second tap is a &to
@@ -196,26 +200,14 @@
             #binding-cells = <1>;
             label = "MACRO_SHIFTED_KP";
             compatible = "zmk,behavior-macro-one-param";
-            bindings =
-            <&macro_press &kp LSHFT>,
-            <&macro_param_1to1 &macro_tap &kp MACRO_PLACEHOLDER>,
-            <&macro_release &kp LSHFT>;
+            bindings = <&macro_press>,<&kp LSHFT &macro_param_1to1>,<&macro_tap>,<&kp MACRO_PLACEHOLDER>,<&macro_release>,<&kp LSHFT>;
         };
 
         as: autoshift {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             label = "AUTOSHIFT_KP";
-            bindings =
-            <&macro_press>,
-            <&macro_param_1to1>,
-            <&macro_param_1to2>,
-            <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,
-            <&macro_pause_for_release>,
-            <&macro_release>,
-            <&macro_param_1to1>,
-            <&macro_param_1to2>,
-            <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
+            bindings = <&macro_press>,<&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,<&macro_pause_for_release>,<&macro_release>,<&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
         };
     };
 };
@@ -318,18 +310,20 @@
 /* Automatically generated keymap */
 
 / {
-    keymap {
+    
+behaviors {};
+keymap {
         compatible = "zmk,keymap";
 
         layer_Base {
             bindings = <
 &kp F1                &kp F2   &kp F3                 &kp F4                 &kp F5                                                                                                                       &kp F6     &kp F7     &kp F8   &kp F9           &kp F10
 &kp ESC               &kp N1   &kp N2                 &kp N3                 &kp N4                 &kp N5                                                                                        &kp N6  &kp N7     &kp N8     &kp N9   &kp N0           &kp DE_UMLAUT
-&caps_word            &kp Q    &kp W                  &kp E                  &kp R                  &kp T                                                                                         &kp Y   &kp U      &kp I      &kp O    &kp P            &kp DE_U_UMLAUT
+&caps_word            &kp Q    &as W                  &kp E                  &kp R                  &kp T                                                                                         &kp Y   &kp U      &kp I      &kp O    &kp P            &kp DE_U_UMLAUT
 &mt LSHFT BSPC        &kp A    &kp S                  &kp D                  &kp F                  &kp G                                                                                         &kp H   &kp J      &kp K      &kp L    &kp DE_O_UMLAUT  &kp DE_A_UMLAUT
 &kp LGUI              &kp Z    &kp X                  &kp C                  &kp V                  &kp B   &kp LEFT_ALT  &kp LA(LEFT_CONTROL)  &kp LA(SPACE)  &none  &none          &kp RSHIFT   &kp N   &kp M      &kp COMMA  &kp DOT  &kp DE_MINUS     &kp DE_DOLLAR
 &magic LAYER_Magic 0  &kp TAB  &kp LA(LS(LC(LG(T))))  &kp LA(LS(LC(LG(A))))  &kp LA(LS(LC(LG(W))))          &lt 4 RET     &kp LEFT_COMMAND      &kp SPACE      &none  &kp BACKSPACE  &lt 5 SPACE          &kp LG(P)  &none      &none    &none            &none
-            >;
+>;
         };
 
         layer_Lower {
@@ -340,7 +334,7 @@
 &trans                &none         &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PG_UP                                                  &kp PERCENT            &kp KP_N4   &kp KP_N5     &kp KP_N6     &kp KP_PLUS      &none
 &trans                &kp K_APP     &none           &kp F11         &kp F12          &kp PG_DN  &trans  &trans  &to 0   &trans  &trans  &trans  &kp COMMA              &kp KP_N1   &kp KP_N2     &kp KP_N3     &kp KP_ENTER     &trans
 &magic LAYER_Magic 0  &kp CAPS      &kp INS         &kp F11         &kp F12                     &trans  &trans  &trans  &trans  &trans  &trans                         &kp KP_N0   &kp KP_N0     &kp KP_DOT    &kp KP_ENTER     &trans
-            >;
+>;
         };
 
         layer_Magic {
@@ -351,7 +345,7 @@
 &bootloader  &rgb_ug RGB_SPD  &rgb_ug RGB_SAD  &rgb_ug RGB_HUD  &rgb_ug RGB_BRD  &rgb_ug RGB_EFF                                                   &none  &none  &none  &none  &none  &bootloader
 &sys_reset   &none            &none            &none            &none            &none            &bt_2  &bt_3  &none         &none  &none  &none  &none  &none  &none  &none  &none  &sys_reset
 &none        &none            &none            &none            &none                             &bt_0  &bt_1  &out OUT_USB  &none  &none  &none         &none  &none  &none  &none  &to 3
-            >;
+>;
         };
 
         layer_Factory {
@@ -362,7 +356,7 @@
 &kp NUMBER_3  &kp NUMBER_9  &kp NUMBER_5  &kp NUMBER_1  &kp NUMBER_7  &kp NUMBER_2                                                                                      &kp NUMBER_2  &kp NUMBER_7  &kp NUMBER_1  &kp NUMBER_5  &kp NUMBER_9  &kp NUMBER_3
 &kp NUMBER_4  &kp NUMBER_0  &kp NUMBER_6  &kp NUMBER_2  &kp NUMBER_8  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp NUMBER_6  &kp NUMBER_5  &kp NUMBER_4  &kp NUMBER_3  &kp NUMBER_8  &kp NUMBER_2  &kp NUMBER_6  &kp NUMBER_0  &kp NUMBER_4
 &kp NUMBER_5  &kp NUMBER_1  &kp NUMBER_7  &kp NUMBER_3  &kp NUMBER_9                &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_9  &kp NUMBER_8  &kp NUMBER_7                &kp NUMBER_9  &kp NUMBER_3  &kp NUMBER_7  &kp NUMBER_1  &kp NUMBER_5
-            >;
+>;
         };
 
         layer_Symbol {
@@ -373,7 +367,7 @@
 &kp LA(G)      &kp DOT       &kp LS(COMMA)  &kp LA(N8)  &kp LA(N9)     &kp LS(N2)                                                  &kp N4      &kp N5  &kp N6  &kp RS(N1)      &kp EQUAL   &none
 &kp LS(N3)     &kp FSLH      &kp LS(DOT)    &kp LA(N5)  &kp LA(N6)     &kp MINUS   &trans  &trans  &trans  &trans  &trans  &trans  &kp N1      &kp N2  &kp N3  &kp BSLH        &kp RA(N7)  &none
 &none          &none         &none          &none       &none                      &trans  &trans  &trans  &trans  &trans  &trans              &none   &none   &none           &none       &none
-            >;
+>;
         };
 
         layer_System {
@@ -384,7 +378,7 @@
 &trans  &kp C_STOP  &kp C_PREV  &kp C_PLAY    &kp C_NEXT    &none                                                         &kp PG_DN  &kp LEFT     &kp DOWN         &kp RIGHT  &kp LC(LS(LG(LA(C))))  &none
 &trans  &trans      &none       &none         &none         &none         &trans  &trans  &trans  &trans  &trans  &trans  &none      &kp LC(TAB)  &kp LC(LS(TAB))  &none      &none                  &trans
 &trans  &none       &none       &none         &none                       &trans  &trans  &trans  &trans  &trans  &trans             &none        &none            &none      &none                  &none
-            >;
+>;
         };
     };
 };
