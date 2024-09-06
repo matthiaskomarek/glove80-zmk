@@ -284,12 +284,12 @@ endif {
 
         layer_Base {
             bindings = <
-&kp F1                &kp F2      &kp F3                 &kp F4                 &kp F5                                                                                                         &kp F6     &kp F7     &kp F8   &kp F9           &kp F10
-&kp ESC               &kp N1      &kp N2                 &kp N3                 &kp N4                 &kp N5                                                                          &kp N6  &kp N7     &kp N8     &kp N9   &kp N0           &kp DE_UMLAUT
-&caps_word            &kp Q       &kp W                  &kp E                  &kp R                  &kp T                                                                           &kp Y   &kp U      &kp I      &kp O    &kp P            &kp DE_U_UMLAUT
-&mt LSHFT BSPC        &kp A       &kp S                  &kp D                  &kp F                  &kp G                                                                           &kp H   &kp J      &kp K      &kp L    &kp DE_O_UMLAUT  &kp DE_A_UMLAUT
-&kp LGUI              &mt RALT Z  &kp X                  &kp C                  &kp V                  &kp B   &none      &kp LA(SPACE)  &none      &none  &none          &kp RSHIFT   &kp N   &kp M      &kp COMMA  &kp DOT  &kp DE_MINUS     &kp DE_DOLLAR
-&magic LAYER_Magic 0  &none       &kp LA(LS(LC(LG(T))))  &kp LA(LS(LC(LG(A))))  &kp LA(LS(LC(LG(W))))          &lt 4 RET  &mt LCTRL TAB  &kp SPACE  &none  &kp BACKSPACE  &lt 5 SPACE          &kp LG(P)  &none      &none    &none            &none
+&kp F1                &kp F2   &kp F3                 &kp F4                 &kp F5                                                                                                                       &kp F6     &kp F7     &kp F8   &kp F9           &kp F10
+&kp ESC               &kp N1   &kp N2                 &kp N3                 &kp N4                 &kp N5                                                                                        &kp N6  &kp N7     &kp N8     &kp N9   &kp N0           &kp DE_UMLAUT
+&caps_word            &kp Q    &kp W                  &kp E                  &kp R                  &kp T                                                                                         &kp Y   &kp U      &kp I      &kp O    &kp P            &kp DE_U_UMLAUT
+&mt LSHFT BSPC        &kp A    &kp S                  &kp D                  &kp F                  &kp G                                                                                         &kp H   &kp J      &kp K      &kp L    &kp DE_O_UMLAUT  &kp DE_A_UMLAUT
+&kp LGUI              &kp Z    &kp X                  &kp C                  &kp V                  &kp B   &kp LEFT_ALT  &kp LA(LEFT_CONTROL)  &kp LA(SPACE)  &none  &none          &kp RSHIFT   &kp N   &kp M      &kp COMMA  &kp DOT  &kp DE_MINUS     &kp DE_DOLLAR
+&magic LAYER_Magic 0  &kp TAB  &kp LA(LS(LC(LG(T))))  &kp LA(LS(LC(LG(A))))  &kp LA(LS(LC(LG(W))))          &lt 4 RET     &kp LEFT_COMMAND      &kp SPACE      &none  &kp BACKSPACE  &lt 5 SPACE          &kp LG(P)  &none      &none    &none            &none
             >;
         };
 
